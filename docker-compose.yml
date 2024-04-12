@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  nodejs:
+    build: 
+      context: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_USER: postgres
+      DB_PASSWORD: buba
+      DB_NAME: intime
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: buba
+      POSTGRES_DB: intime
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/data/postgres
