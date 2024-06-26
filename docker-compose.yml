@@ -12,15 +12,15 @@ services:
     depends_on:
       - postgres
     environment:
-      DB_HOST: postgres
-      DB_USER: postgres
+      DB_HOST: localhost
+      DB_USER: feern
       DB_PASSWORD: buba
       DB_NAME: intime
 
   postgres:
     image: postgres
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: feern
       POSTGRES_PASSWORD: buba
       POSTGRES_DB: intime
     ports:
